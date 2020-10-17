@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 class Repo extends Component {
   render() {
+    const { repository } = this.props.Repo;
     return (
       <div className="repoCard">
         <h2>
@@ -9,17 +11,21 @@ class Repo extends Component {
           <hr />
         </h2>
         <div className="repoScroll">
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
-          <div>AuthenticateSystem</div>
+          <ul>
+            {repository.map((repo, index) => (
+              <Link to={`/repo/${index}`} key={index}>
+                <li>{repo.name}</li>
+              </Link>
+            ))}
+          </ul>
         </div>
       </div>
     );
   }
 }
-
-export default Repo;
+function mapStateToProps(state) {
+  return {
+    Repo: state.Repo,
+  };
+}
+export default connect(mapStateToProps)(Repo);

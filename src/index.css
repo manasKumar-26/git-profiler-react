@@ -146,8 +146,8 @@ code {
   width: 60px;
   font-size: 22px;
   background-color: white;
-  top: 300px;
-  left: 7.9vw;
+  top: 318px;
+  left: 6.85vw;
   padding: 5px;
 }
 .repoCard {
@@ -166,8 +166,29 @@ code {
   flex-direction: column;
   overflow-y: scroll;
   justify-content: space-between;
+  height: 160px;
 }
-.repoScroll div {
+.repoScroll li {
   font-family: sans-serif;
   font-size: 20px;
+  margin-top: 6px;
+}
+.aboutme {
+  position: absolute;
+
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  left: 50vw;
+  color: white;
+  background-color: #636363;
+  overflow-y: scroll;
+  justify-content: space-around;
+  padding: 10px;
+  display: none;
+}
+.showme {
+  display: flex;
 }

@@ -2,12 +2,13 @@ import React from "react";
 import Navbar from "./Navbar";
 import GitComponent from "./GitComponent";
 import Search from "./Search";
+import Detail from "./Detail";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 class App extends React.Component {
   render() {
     const { user, isLoggedIn } = this.props.Auth;
-    const search = true;
+    const { searchedUser } = this.props.Search;
     return (
       <div>
         <div className="App">
@@ -16,9 +17,10 @@ class App extends React.Component {
               <Router>
                 <Navbar />
                 <Search />
-                {search && (
+                {searchedUser && (
                   <Switch>
-                    <Route path="/" component={GitComponent} />
+                    <Route exact path="/" component={GitComponent} />
+                    <Route exact path="/repo/:id" component={Detail} />
                   </Switch>
                 )}
               </Router>
@@ -36,6 +38,7 @@ class App extends React.Component {
 function mapStateToProps(state) {
   return {
     Auth: state.Auth,
+    Search: state.Search,
   };
 }
 export default connect(mapStateToProps)(App);
