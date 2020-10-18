@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 class Detail extends Component {
   render() {
     const openedRepo = this.props.Repo.repository[this.props.match.params.id];
-    console.log(openedRepo);
     return (
       <div
         style={{
