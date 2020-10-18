@@ -153,7 +153,7 @@ code {
 .repoCard {
   display: flex;
   flex-direction: column;
-  width: 34em;
+  width: 36em;
   justify-content: space-between;
   align-items: center;
   background-color: white;
@@ -168,6 +168,17 @@ code {
   justify-content: space-between;
   height: 160px;
 }
+.repoScroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.repoScroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+
+.repoScroll::-webkit-scrollbar-thumb {
+  background-color: #bab4ae;
+}
 .repoScroll li {
   font-family: sans-serif;
   font-size: 20px;
@@ -175,7 +186,6 @@ code {
 }
 .aboutme {
   position: absolute;
-
   width: 300px;
   height: 250px;
   display: flex;

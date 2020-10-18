@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 class App extends React.Component {
   render() {
-    const { user, isLoggedIn } = this.props.Auth;
+    const isLoggedIn = true;
     const { searchedUser } = this.props.Search;
     return (
       <div>
@@ -37,7 +37,6 @@ class App extends React.Component {
 }
 function mapStateToProps(state) {
   return {
-    Auth: state.Auth,
     Search: state.Search,
   };
 }

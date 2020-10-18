@@ -2,6 +2,7 @@ import React from "react";
 import { SearchOutlined } from "@material-ui/icons";
 import { Button } from "@material-ui/core";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchUser } from "../Actions/Search";
 class Search extends React.Component {
   constructor() {
@@ -13,6 +14,9 @@ class Search extends React.Component {
   handleSearch = () => {
     const { searchText } = this.state;
     this.props.dispatch(fetchUser(searchText));
+    this.setState({
+      searchText: "",
+    });
   };
   render() {
     const { isSearching, searchSuccess } = this.props.Search;
@@ -27,9 +31,11 @@ class Search extends React.Component {
               value={this.state.searchText}
               onChange={(e) => this.setState({ searchText: e.target.value })}
             />
-            <Button onClick={this.handleSearch}>
-              {isSearching ? "Searching..." : "Search"}
-            </Button>
+            <Link to="/">
+              <Button onClick={this.handleSearch}>
+                {isSearching ? "Searching..." : "Search"}
+              </Button>
+            </Link>
           </div>
         </div>
         {searchSuccess && (

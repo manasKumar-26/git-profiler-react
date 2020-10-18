@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 class GitComponent extends Component {
   render() {
     const { searchUser } = this.props.Search;
-    console.log(searchUser);
     return (
       <div className="results_Container">
         <div className="vague_information">
